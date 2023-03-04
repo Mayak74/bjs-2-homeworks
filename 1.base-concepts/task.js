@@ -2,19 +2,19 @@
 
 function solveEquation(a, b, c) {
   let discriminant = b * b - 4 * a * c;
-  let roots = [];
+  let arr = [];
 
   if (discriminant < 0) {
-    return roots;
+    return arr;
   } else if (discriminant === 0) {
     let x = -b / (2 * a);
-    roots.push(x);
-    return roots;
+    arr.push(x);
+    return arr;
   } else {
     let x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
     let x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-    roots.push(x1, x2);
-    return roots;
+    arr.push(x1, x2);
+    return arr;
   }
 }
 
@@ -55,10 +55,10 @@ let contribution = prompt("Введите первоначальный взно�
 let amount = prompt("Введите сумму кредита:");
 let countMonths = prompt("Введите срок кредита в месяцах:");
 
-let result = calculateTotalMortgage(percent, contribution, amount, countMonths);
+let resultTaskTwo = calculateTotalMortgage(percent, contribution, amount, countMonths);
 
-if (result === false) {
+if (resultTaskTwo === false) {
   alert("Ошибка ввода данных");
 } else {
-  alert(`Общая сумма выплат составит: ${result}`);
+  alert(`Общая сумма выплат составит: ${resultTaskTwo}`);
 }
