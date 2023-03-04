@@ -34,5 +34,31 @@ if (result.length === 0) {
 
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  
+    if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
+    return false;
+  }
+
+  percent = Number(percent) / 100;
+  let monthlyPercent = percent / 12;
+
+  let bodyCredit = amount - contribution;
+
+  let monthlyPayment = bodyCredit * (monthlyPercent + monthlyPercent / ((1 + monthlyPercent) ** countMonths - 1));
+
+  let totalAmount = monthlyPayment * countMonths;
+
+  return Number(totalAmount.toFixed(2));
+}
+
+let percent = prompt("Введите процентную ставку:");
+let contribution = prompt("Введите первоначальный взнос:");
+let amount = prompt("Введите сумму кредита:");
+let countMonths = prompt("Введите срок кредита в месяцах:");
+
+let result = calculateTotalMortgage(percent, contribution, amount, countMonths);
+
+if (result === false) {
+  alert("Ошибка ввода данных");
+} else {
+  alert(`Общая сумма выплат составит: ${result}`);
 }
