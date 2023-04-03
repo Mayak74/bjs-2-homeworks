@@ -21,7 +21,6 @@ function solveEquation(a, b, c) {
 let a = parseFloat(prompt("Введите коэффициент a:"));
 let b = parseFloat(prompt("Введите коэффициент b:"));
 let c = parseFloat(prompt("Введите коэффициент c:"));
-
 let result = solveEquation(a, b, c);
 
 if (result.length === 0) {
